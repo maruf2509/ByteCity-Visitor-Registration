@@ -5,37 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BYTECITY Registration</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    body {
       background: #0d0d0d;
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
       color: white;
+      min-height: 100vh;
     }
-    .container {
-      width: 90%;
-      max-width: 450px;
-      background: #111;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.05);
+    .logo-container {
+      width: 100%;
+      overflow: hidden;
     }
     .logo-wide {
       width: 100%;
       height: auto;
-      max-height: 300px;
-      object-fit: cover;
       display: block;
-      margin: 0 auto 20px auto;
-      padding: 0;
+    }
+    .form-wrapper {
+      max-width: 450px;
+      margin: 0 auto;
+      padding: 40px 30px;
     }
     h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       color: #fff;
       font-size: 26px;
       font-weight: bold;
@@ -49,6 +46,9 @@
       background: #1a1a1a;
       color: white;
       font-size: 16px;
+    }
+    input::placeholder {
+      color: #888;
     }
     button {
       width: 100%;
@@ -71,28 +71,65 @@
       color: #4CAF50;
       font-size: 16px;
     }
+
+    /* Desktop centering */
+    @media (min-width: 769px) {
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .main-container {
+        width: 100%;
+        max-width: 500px;
+        background: #111;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(255,255,255,0.05);
+      }
+      .logo-wide {
+        max-height: 300px;
+        object-fit: cover;
+      }
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 768px) {
+      .form-wrapper {
+        padding: 30px 20px;
+      }
+      h2 {
+        font-size: 22px;
+        margin-bottom: 25px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.jpg" class="logo-wide" />
+  <div class="main-container">
+    <div class="logo-container">
+      <img src="logo.jpg" class="logo-wide" alt="BYTECITY Logo" />
+    </div>
 
-    <h2>Visitor Registration</h2>
+    <div class="form-wrapper">
+      <h2>Visitor Registration</h2>
 
-    <form id="regForm">
-      <input type="text" name="Name" placeholder="Full Name" required />
-      <input type="text" name="Mobile" placeholder="Mobile Number" required />
-      <input type="email" name="Email" placeholder="Email" required />
-      <input type="text" name="Department" placeholder="Department" required />
+      <form id="regForm">
+        <input type="text" name="Name" placeholder="Full Name" required />
+        <input type="text" name="Mobile" placeholder="Mobile Number" required />
+        <input type="email" name="Email" placeholder="Email" required />
+        <input type="text" name="Department" placeholder="Department" required />
 
-      <button type="submit">Submit</button>
-    </form>
+        <button type="submit">Submit</button>
+      </form>
 
-    <p id="successMsg" class="success"></p>
+      <p id="successMsg" class="success"></p>
+    </div>
   </div>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwfuazmi6dZXjVJKq0yhdMPM-aaPBYE7Imv5F-V4uP5CI0L4loEJVAZYA2MhlK3jINCig/exec"; // Replace with your Google Script URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwfuazmi6dZXjVJKq0yhdMPM-aaPBYE7Imv5F-V4uP5CI0L4loEJVAZYA2MhlK3jINCig/exec";
     const form = document.getElementById("regForm");
     const msg = document.getElementById("successMsg");
 
