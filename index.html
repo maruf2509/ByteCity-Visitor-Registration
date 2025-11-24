@@ -11,7 +11,7 @@
       box-sizing: border-box;
     }
     body {
-      background: #0d0d0d;
+      background: #000000;
       font-family: Arial, sans-serif;
       color: white;
       min-height: 100vh;
@@ -19,6 +19,7 @@
     .logo-container {
       width: 100%;
       overflow: hidden;
+      padding-top: 40px;
     }
     .logo-wide {
       width: 100%;
@@ -83,7 +84,7 @@
       .main-container {
         width: 100%;
         max-width: 500px;
-        background: #111;
+        background: #000000;
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 0 20px rgba(255,255,255,0.05);
@@ -96,6 +97,9 @@
 
     /* Mobile optimization */
     @media (max-width: 768px) {
+      .logo-container {
+        padding-top: 20px;
+      }
       .form-wrapper {
         padding: 30px 20px;
       }
